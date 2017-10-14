@@ -52,9 +52,6 @@ int merge_sort(int arr[],int start,int end)
 }
 int main()
 {
-	// int arr [] = {1,5,3,6,4};
-	// int a = merge_sort(arr,0,4);
-    // cout<<"sum: "<<a;
     int test;
     cin>>test;
     for(int t=0;t<test;t++)
