@@ -8,9 +8,10 @@ public class Solution15{
         while(min<=max)
             {
                 mid = ((int)((long)min+max))/2;
-               // System.out.println("mid :"+mid);
+               //System.out.println("mid :"+mid);
                 cow=1;
                 boolean possible=false;
+                int prev=arr[0];
                 for(int i=1;i<arr.length;i++)
                     {
                         if(cow == k)
@@ -18,10 +19,11 @@ public class Solution15{
                                 possible=true;
                                 break;
                             }
-                        int val = arr[i]-arr[0];
-                        if(val >= (cow*mid))
+                        int val = arr[i]-prev;
+                        if(val >= mid)
                             {
-                                //System.out.println("elem "+arr[i]);
+                               // System.out.println("elem "+arr[i]);
+                                prev=arr[i];
                                 cow++;
                             }
                     }
@@ -34,7 +36,7 @@ public class Solution15{
                     {
                         max=mid-1;
                     }
-               // System.out.println("min: "+min+" max: "+max);
+              // System.out.println("min: "+min+" max: "+max);
             }
         return minDist;
     }
