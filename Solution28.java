@@ -1,8 +1,8 @@
 public class Solution28{
     public static int[] sieve()
     {
-       int arr[] = new int[1000],count=0;
-        for(int i=2;i<Math.floor(Math.sqrt(1000));i++)
+       int arr[] = new int[1001],count=0;
+        for(int i=2;i<=1000;i++)
             {
                 if(arr[i]!=-1)
                     {
@@ -15,13 +15,13 @@ public class Solution28{
                   		count++;
                     }
             }
-      	int new_arr [] = new int[count];
+        int new_arr [] = new int[count];
       	int k=0;
       	for(int i=2;i<=1000;i++)
         {
           if(arr[i] != -1)
           {
-            new_arr[k] = arr[i];
+            new_arr[k] = i;
             k++;
           }
         }
@@ -43,6 +43,6 @@ public class Solution28{
 		return common;                             
 	}
     public static void main(String[] args) {
-        greatesCommonPrimeDivisor(12,18);
+        System.out.println(greatesCommonPrimeDivisor(12,18));
     }
 }
