@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Solution30{
+public class Solution30 {
     public static int[] lpd(int n)
     {
       int arr[] = new int[n+1];
@@ -20,12 +20,16 @@ public class Solution30{
                                 }
                             k++;
                         }
+                    arr[i] = i;
                 }
         }
-        // for(int i=2;i<arr.length;i++)
-        //     {
-        //         System.out.println(i+" "+arr[i]);
-        //     }
+        for(int i=2;i<arr.length;i++)
+            {
+                if(arr[i] == 0)
+                    {
+                        arr[i] = i;
+                    }
+            }
       return arr;
     }
     public static void display_arr(int n)
@@ -35,10 +39,12 @@ public class Solution30{
         for(int i=n;i>1;i--)
             {
              //   System.out.println(i+" "+status[i]);
+                //System.out.println("i : "+i);
                 if(status[i] == false)
                     {
                         int x = lpd_arr[i]; // lowest prime factor
-                        if(x == 0)
+                        //System.out.println("x lpd: "+x);
+                        if(x == i)
                             {
                                 System.out.print(i+" ");
                                 continue;
@@ -51,6 +57,8 @@ public class Solution30{
                         boolean flag= true;
                         while(flag)
                             {
+                               // System.out.println("Start");
+                               System.out.println("x: "+x+" start: "+start);
                                 int current = i;
                                 //System.out.println("x : "+x);
                                 while(current - x >= x)
@@ -63,6 +71,10 @@ public class Solution30{
                                          current-=x;
                                          status[current] = true;
                                     }
+                                    if(start == x)
+                                        {
+                                            break;
+                                        }
                                 while(start%x==0)
                                     {
                                         if(start == x)
@@ -72,14 +84,14 @@ public class Solution30{
                                             }
                                         start = start / x;
                                     }
-                                x = start;
+                                x = lpd_arr[start];
+                                // System.out.println("end");
                             }
                         Collections.sort(list, Collections.reverseOrder());
                         for(Integer val:list)
                             {
                               System.out.print(val+" ");
                             }
-                        System.out.println();
                     }
             }
         System.out.print(1);
